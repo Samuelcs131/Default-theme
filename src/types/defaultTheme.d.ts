@@ -1,9 +1,13 @@
-export interface iThemeDefault {
-    pallete: iPallete,
-    shape: iShape,
-    typography: iTypography,
-    breakpoints: iBreakpoints,
-    screen: iScreen
+import "styled-components"
+
+declare module 'styled-components' {
+    export interface DefaultTheme{
+        pallete: iPallete,
+        shape: iShape,
+        typography: iTypography,
+        breakpoints: iBreakpoints,
+        screen: iScreen
+    }
 }
 
 // BREAKPOINTS
@@ -20,7 +24,6 @@ export interface iValueBreakpoints {
 export interface iScreen {
     maxWidth: iValueBreakpoints
 }
-
 
 // PALLETE
 export interface iPallete {
@@ -57,7 +60,7 @@ export interface iText {
 
 export interface iColors {
     main: string, 
-    ligth: string, 
+    light: string, 
     dark: string, 
     constrastText: string
 }
@@ -79,10 +82,13 @@ export interface iAction {
 export interface iBackground {
     default: string, paper: string
 }
+
+// SHAPE
 export interface iShape {
-    borderRadius: number
+    borderRadius: string
 }
 
+// TYPOGRAPHY
 export interface iTypography {
     htmlFontSize: string,
     fontFamily: string,
