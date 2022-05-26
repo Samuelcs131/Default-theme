@@ -188,11 +188,11 @@ export const themeLight: DefaultTheme = {
             g900: '#212121', A100: '#f5f5f5', A200: '#eeeeee', A400: '#bdbdbd', A700: '#616161'
         },
         text: {
-            primary: '#fff', secondary: 'rgba(255, 255, 255, 0.7)', disabled: 'rgba(255, 255, 255, 0.5)', icon: 'rgba(255, 255, 255, 0.5)'
+            primary: 'rgba(0, 0, 0, 0.87)', secondary: 'rgba(0, 0, 0, 0.6)', disabled: 'rgba(0, 0, 0, 0.38)', icon: 'rgba(255, 255, 255, 0.5)'
         }, 
-        divider: 'rgba(255, 255, 255, 0.12)',
+        divider: 'rgba(0, 0, 0, 0.12)',
         background: {
-            paper: '#121212', default: '#121212'
+            paper: '#121212', default: '#fff'
         },
         action: {
             active: '#fff', 
@@ -218,48 +218,48 @@ export const themeLight: DefaultTheme = {
         fontFamily: "'Poppins', sans-serif",
         fontSize: '14px',
         fontWeightLight: '300',
-        fontWeightRegular: '300',
-        fontWeightMedium: '300',
-        fontWeightBold: '300',
+        fontWeightRegular: '400',
+        fontWeightMedium: '500',
+        fontWeightBold: '700',
         h1: { 
             fontFamily: "'Poppins', sans-serif",
             fontWeight: '300',
-            fontSize: "6rem",
+            fontSize: "2.5rem",
             lineHeight: '1.167',
             letterSpacing: "-0.01562em"
         },
         h2: {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: '300',
-            fontSize: "3.75rem",
+            fontSize: "2rem",
             lineHeight: '1.2',
             letterSpacing: "-0.00833em"
         },
         h3: {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: '400',
-            fontSize: "3rem",
+            fontSize: "1.75rem",
             lineHeight: '1.167',
             letterSpacing: "0em"
         },
         h4: {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: '400',
-            fontSize: "2.125rem",
+            fontSize: "1.5rem",
             lineHeight: '1.235',
             letterSpacing: "0.00735em"
         },
         h5: {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: '400',
-            fontSize: "1.5rem",
+            fontSize: "1.25rem",
             lineHeight: '1.334',
             letterSpacing: "0em"
         },
         h6: {
             fontFamily: "'Poppins', sans-serif",
             fontWeight: '500',
-            fontSize: "1.25rem",
+            fontSize: "1rem",
             lineHeight: '1.6',
             letterSpacing: "0.0075em"
         },

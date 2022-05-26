@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const Content = styled.div`
+    margin-top: 20px;
+    margin-bottom: 20px;
     grid: repeat(9, fit-content(300px))/100%;
     grid-template-areas:
         "colors"

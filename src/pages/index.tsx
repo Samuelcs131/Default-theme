@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Buttons from '../components/Buttons'
 import Colors from '../components/Colors' 
 import HeadPage from '../components/HeadPage'
+import Switch from '../components/Switch'
 import Typography from '../components/Typography'
 import { ContainerMain } from '../styles/container' 
 import { Content } from '../styles/home'
@@ -11,7 +12,8 @@ const Home: NextPage = () => {
   <HeadPage titlePage="Default Theme"/>
   <ContainerMain>
   <div>
-    <h1>The theme</h1>
+    <h1 style={{textAlign: 'center', marginBottom: '10px', marginTop: '10px'}}>The theme</h1>
+    <Switch/>
     <Content>
         <Colors/>
         <Typography/>

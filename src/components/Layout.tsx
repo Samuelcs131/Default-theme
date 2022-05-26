@@ -9,10 +9,10 @@ import { iDataContext } from '../types/globalState';
 
 const Layout = ({children}: iLayout): JSX.Element => {
 
-    const {state}  = useContext<iDataContext>(DataContext)
+    const { state } = useContext<iDataContext>(DataContext)
 
     return(<>
-    <ThemeProvider theme={state.theme.themeDefault === 'dark' ? themeDark : themeLight}>
+    <ThemeProvider theme={state.theme.themeDefault == 'dark' ? themeDark : themeLight}>
         <GlobalStyle/>
         {children}
     </ThemeProvider>

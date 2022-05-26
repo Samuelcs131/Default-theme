@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import { rgb, rgba } from 'polished'
+import { rgba } from 'polished'
+import { iButton } from "../types/styles";
 
 export const Container = styled.section`
     grid-area: buttons; 
@@ -7,12 +8,23 @@ export const Container = styled.section`
     border: 1px solid ${({theme})=>theme.pallete.primary.main};
     padding: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
     gap: 20px;
-    min-width: 64px;
+   
     flex-wrap: wrap;
 
-    div{
+    & > h6{
+        position: absolute;
+        top: -15px;
+        left: 20px;
+        padding: 0 10px;
+        font-size: ${({theme})=>theme.typography.body1.fontSize};
+        color: ${({theme})=>theme.pallete.primary.main};
+        background-color: ${({theme})=>theme.pallete.background.default};
+    }
+
+    & > div{
         display: flex;
         align-items: center;
         gap: 20px;
@@ -21,70 +33,105 @@ export const Container = styled.section`
     }
 `
 
-interface iDefaultButton {
-    size?: string,
-    color?: string,
-    variant?: string
-}
-
-export const Button = styled.button<iDefaultButton>`
+export const Button = styled.button<iButton>`
     padding: 8px 22px;
     border-radius: ${({theme})=>theme.shape.borderRadius};
     display: inline-block;
     transition: .3s;
     cursor: pointer;
     place-items: center;
-    color: ${({theme})=>theme.pallete.text.primary};
     user-select: none;
     font-size: 0.9375rem;
+    min-width: 64px;
+    font-weight: ${({theme})=>theme.typography.fontWeightMedium};
+    font-family: ${({theme})=>theme.typography.body1.fontFamily};
 
-    &:active{
-        background-color: ${({theme})=>rgba(theme.pallete.primary.main,0.08) };
-    }
-     
+
     // SIZE
-    ${({size})=>{
+    ${({ size })=>{
+        // SIZE
         if(size === 'medium'){
-            return( css` padding: 5px 15px; `)
-        } else if (size === 'small'){
-            return( css` padding: 3px 9px; `)
+            return( css` 
+                padding: 5px 15px;
+                font-size: 0.875rem;
+            `)
+        }
+        if (size === 'small'){
+            return( css` 
+                padding: 3px 9px; 
+                font-size: 0.8125rem;
+            `)
         }
     }}
+    
+    // VARIANT & COLOR
+    ${({variant,color,theme})=>{
+
+    // CHANGE PALLETE
+    function selectColor() {
+        switch(color){
+            case 'secondary': 
+            return theme.pallete.secondary.main
+            
+            case 'success': 
+            return theme.pallete.success.main
+            
+            case 'error': 
+            return theme.pallete.error.main
+            
+            case 'info': 
+            return theme.pallete.info.main
+
+            default: 
+            return theme.pallete.primary.main
+        }
+    }
 
     // VARIANT
-    ${({variant})=>{
-            if(variant === 'outlined'){
-                return( css`
-                    border: 1px solid ${({theme})=>theme.pallete.primary.main};
-                `)
+    if(variant === 'outlined'){
+        return( css`
+            border: 1px solid ${selectColor};
+            color: ${selectColor};
 
-            } else if (variant === 'contained'){
-                return( css`
-                    background-color: ${({theme})=>theme.pallete.primary.main};
-                    
-                    &:active{
-                        background-color: ${({theme})=>theme.pallete.primary.dark};
-                    }
-                `)
+            &:hover{
+                background-color: ${rgba(selectColor(),0.08)};
             }
-    }}
-
-    // COLOR
-    ${({color})=>{
-            if(color === 'secundary'){
-                return( css`
-                    border: 1px solid ${({theme})=>theme.pallete.primary.main};
-                `)
-            }  
             
-            if (color === 'error'){
-                return( css`
-                    background-color: ${({theme})=>theme.pallete.primary.main};
-                    
-                    &:active{
-                        background-color: ${({theme})=>theme.pallete.primary.dark};
-                    }
-                `)
+            &:active{
+                background-color: ${rgba(selectColor(),0.18)};
             }
+            
+        `)
+    }
+    
+    else if (variant === 'contained'){
+        return( css`
+            background-color: ${selectColor};
+            color: ${({theme})=>theme.pallete.background.default};
+            
+            &:hover{
+                background-color: ${rgba(selectColor(),0.6)};
+            }
+            
+            &:active{
+                background-color: ${rgba(selectColor(),0.4)};
+            }
+        `)
+    }
+
+    else {
+        return( css`
+            color: ${selectColor};
+
+            &:hover{
+                background-color: ${rgba(selectColor(),0.08)};
+            }
+            
+            &:active{
+                background-color: ${rgba(selectColor(),0.18)};
+            }
+        `)
+    }
+
     }}
 `

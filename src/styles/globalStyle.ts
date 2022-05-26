@@ -8,6 +8,7 @@ export default createGlobalStyle`
         border: none;
         outline: none;
         background: none;
+        font-family: ${({theme})=>theme.typography.body1.fontFamily};
      }
      
      html{
@@ -16,13 +17,12 @@ export default createGlobalStyle`
      
      body{
         background: ${({theme})=>theme.pallete.background.default};
-        font-family: ${({theme})=>theme.typography.body1.fontFamily};
         font-size: ${({theme})=>theme.typography.body1.fontSize};
         line-height: ${({theme})=>theme.typography.body1.lineHeight};
         letter-spacing: ${({theme})=>theme.typography.body1.letterSpacing};
         font-weight: ${({theme})=>theme.typography.body1.fontWeight};
         color: ${({theme})=>theme.pallete.text.primary};
-   }
+     }
 
    p{
         font-size: ${({theme})=>theme.typography.fontSize};

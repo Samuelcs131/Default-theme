@@ -9,7 +9,7 @@ const INITIAL_STATE: iGlobalState = {
 }
 
 const ContainerProvider = ({children}: iContainerProvider) => {
- 
+
     const [state, dispatch] = useReducer( Reducer, INITIAL_STATE )
 
     return (
